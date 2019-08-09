@@ -1,0 +1,11 @@
+<div>
+  <h2>Price updater</h2>
+  <mat-form-field>
+    <label for="number">Enter price to update current :</label>
+    <input matInput type="number" id="number" name="number" autocomplete="off" [(ngModel)]="number">
+  </mat-form-field>
+  <div class="update">
+    <button mat-button class="update" type="submit" (click)="updateNumber()">Update</button>
+  </div>
+  <div>Current price is: {{updatedNumber}} &#8381;</div>
+</div>

@@ -1,0 +1,12 @@
+.mat-form-field {
+  max-width: 300px;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+.update {
+  display: flex;
+  justify-content: center;
+}
