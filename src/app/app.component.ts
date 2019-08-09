@@ -25,31 +25,42 @@ export class AppComponent {
     }
   }
 
+  removeTimer(timer) {
+    if (this.updatedNumber === Number(this.condition.toFixed(2))) {
+      clearInterval(timer);
+    }
+  }
+
+  increase() {
+    if (this.updatedNumber !== this.condition) {
+      this.updatedNumber += this.step;
+      this.updatedNumber = Number(this.updatedNumber.toFixed(2));
+      if (this.updatedNumber > this.condition) {
+        this.updatedNumber = Number(this.condition.toFixed(2));
+      }
+    }
+  }
+
+  decrease() {
+    if (this.updatedNumber !== this.condition) {
+      this.updatedNumber -= this.step;
+      this.updatedNumber = Number(this.updatedNumber.toFixed(2));
+      if (this.updatedNumber < this.condition) {
+        this.updatedNumber = Number(this.condition.toFixed(2));
+      }
+    }
+  }
+
   updateNumber() {
     this.setCondition();
     const timer = setInterval(() => {
-      console.log('processing');
       this.setStep();
       if (this.updatedNumber < this.condition) {
-        if (this.updatedNumber !== this.condition) {
-          this.updatedNumber += this.step;
-          this.updatedNumber = Number(this.updatedNumber.toFixed(2));
-          if (this.updatedNumber > this.condition) {
-            this.updatedNumber = Number(this.condition.toFixed(2));
-          }
-        }
+        this.increase();
       } else {
-        if (this.updatedNumber !== this.condition) {
-          this.updatedNumber -= this.step;
-          this.updatedNumber = Number(this.updatedNumber.toFixed(2));
-          if (this.updatedNumber < this.condition) {
-            this.updatedNumber = Number(this.condition.toFixed(2));
-          }
-        }
+        this.decrease();
       }
-      if (this.updatedNumber === Number(this.condition.toFixed(2))) {
-        clearInterval(timer);
-      }
+      this.removeTimer(timer);
     }, 10);
     this.number = '';
   }
