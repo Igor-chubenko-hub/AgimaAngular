@@ -10,7 +10,7 @@ import { PriceUpdateComponent } from './components/price-update/price-update.com
 @NgModule({
   declarations: [
     AppComponent,
-    PriceUpdateComponent
+    PriceUpdateComponent,
   ],
   imports: [
     BrowserModule,
